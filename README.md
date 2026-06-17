@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/robot.png" alt="AI Governance & Observability Scorecard" width="120">
+  <img src="assets/mascot.png" alt="AI Governance & Observability Scorecard" width="120">
 </p>
 
 <h1 align="center">AI Governance & Observability Scorecard</h1>
