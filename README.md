@@ -1,8 +1,12 @@
-# AI Governance & Observability Scorecard
+<p align="center">
+  <img src="assets/robot.png" alt="AI Governance & Observability Scorecard" width="120">
+</p>
+
+<h1 align="center">AI Governance & Observability Scorecard</h1>
 
 An interactive reference scorecard covering **42 AI metrics** across **11 lifecycle layers**, designed to help AI practitioners, data engineers, and governance teams understand what to measure, how to compute it, when to start tracking it, and which tools to use.
 
-**Live:** https://luispsalas.github.io/ai-governance-scorecard/
+**[Live Scorecard](https://luispsalas.github.io/ai-governance-scorecard/)**
 
 ---
 
