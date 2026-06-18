@@ -1,8 +1,8 @@
-# AI Governance & Observability Scorecard
+# AI Metrics Catalog
 
-An interactive reference scorecard covering **42 AI metrics** across **11 lifecycle layers**, designed to help AI practitioners, data engineers, and governance teams understand what to measure, how to compute it, when to start tracking it, and which tools to use.
+A reference catalog of **42 AI metrics** across **11 lifecycle layers**, designed to help AI practitioners, data engineers, and governance teams understand what to measure, how to compute it, when to start tracking it, and which tools to use.
 
-**[Live Scorecard](https://luispsalas.github.io/ai-governance-scorecard/)**
+**[Live Catalog](https://luispsalas.github.io/ai-governance-scorecard/)**
 
 ---
 
@@ -18,6 +18,16 @@ Each metric card covers:
 - **Healthy target** — a practical reference range
 - **Watch out for** — common pitfalls and measurement traps
 - **Tooling** — relevant open-source and vendor tools (RAGAS, DeepEval, Evidently, Presidio, promptfoo, and more)
+
+---
+
+## Questions this catalog helps answer
+
+| Goal | Questions |
+|---|---|
+| **Technical Quality** | Is my RAG pipeline retrieving the right content? Are generated answers grounded and accurate? Are my agents completing tasks reliably? Is the system responding within acceptable latency? |
+| **Governance & Risk** | Is my system handling PII correctly? Can I explain or audit AI decisions? Is it compliant with data governance policies? Am I protected against prompt injection and harmful outputs? |
+| **Business Value** | Is the AI actually being adopted? Is it delivering measurable improvements over baseline? What is it costing us per request, and is that sustainable? |
 
 ---
 
@@ -61,6 +71,18 @@ A practical governance scorecard is typically **20–25 metrics** (4–5 per cat
 | **Foundational** (17 metrics) | Table-stakes metrics — add these from day one or first production release |
 | **Intermediate** (15 metrics) | Add as you productionize — scaling, compliance, and monitoring needs emerge |
 | **Advanced** (10 metrics) | Mature or regulated programs — multi-agent systems, audit requirements, ROI reporting |
+
+---
+
+## Scorecard template
+
+Want to track your own metrics? Download the **[scorecard-template.md](scorecard-template.md)** — a pre-structured markdown file with all 42 metrics organised by maturity tier, with target, current value, owner, and notes columns ready to fill in.
+
+---
+
+## See also
+
+**[applied-ai-concepts](https://github.com/luispsalas/applied-ai-concepts)** — a persistently maintained AI literacy wiki covering the foundational concepts behind designing, deploying, and governing AI systems.
 
 ---
 

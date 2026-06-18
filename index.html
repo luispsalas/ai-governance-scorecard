@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Governance &amp; Observability Scorecard</title>
-<meta name="description" content="An interactive teaching scorecard covering 42 AI metrics across 11 lifecycle layers — retrieval, generation, agents, safety, data governance, AI governance, MLOps, and business value. Includes when to implement, healthy targets, pitfalls, and tooling for each metric.">
-<meta property="og:title" content="AI Governance & Observability Scorecard">
-<meta property="og:description" content="42 metrics · 11 lifecycle layers · Interactive scorecard for AI teams building governance and observability programs.">
+<title>AI Metrics Catalog</title>
+<meta name="description" content="A reference catalog covering 42 AI metrics across 11 lifecycle layers — retrieval, generation, agents, safety, data governance, AI governance, MLOps, and business value. Includes when to implement, healthy targets, pitfalls, and tooling for each metric.">
+<meta property="og:title" content="AI Metrics Catalog">
+<meta property="og:description" content="42 metrics · 11 lifecycle layers · Reference catalog for AI teams building governance and observability programs.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <style>
@@ -58,6 +58,8 @@
   .chip.tier-found.active{background:var(--found);border-color:var(--found)}
   .chip.tier-inter.active{background:var(--inter);border-color:var(--inter);color:#1a1205}
   .chip.tier-adv.active{background:var(--adv);border-color:var(--adv)}
+  .chip.all-chip{color:var(--text);border-color:var(--line)}
+  .chip.all-chip.active{background:var(--panel-2);border-color:var(--text);color:var(--text);font-weight:600}
   .chip.goal-tech{color:var(--tech);border-color:rgba(0,180,216,.35)}
   .chip.goal-tech:hover{border-color:var(--tech)}
   .chip.goal-tech.active{background:var(--tech);border-color:var(--tech);color:#001f2d}
@@ -137,8 +139,32 @@
 
 <header class="hero">
   <div class="wrap">
-    <h1>AI Metrics Scorecard</h1>
-    <p class="lede">A teaching reference for data-governance &amp; AI-observability metrics — what each one measures, how to compute it, when to start tracking it, and the tools to do so. 42 metrics across 11 layers of the AI lifecycle.</p>
+    <svg viewBox="0 0 1140 72" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1140px;display:block;margin-bottom:22px;border-radius:10px;overflow:hidden">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#0d1f2d"/>
+          <stop offset="100%" stop-color="#111827"/>
+        </linearGradient>
+      </defs>
+      <rect width="1140" height="72" fill="url(#bg)" rx="10"/>
+      <!-- accent bars -->
+      <rect x="0" y="0" width="4" height="72" fill="#00b4d8" rx="2"/>
+      <rect x="8" y="0" width="4" height="72" fill="#9d4edd" rx="2"/>
+      <rect x="16" y="0" width="4" height="72" fill="#f77f00" rx="2"/>
+      <!-- title -->
+      <text x="36" y="28" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="700" fill="#e6edf3" letter-spacing="-0.3">AI Metrics Catalog</text>
+      <!-- subtitle -->
+      <text x="36" y="50" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#6b7785">42 metrics · 11 lifecycle layers · governance &amp; observability reference</text>
+      <!-- right-side tags -->
+      <rect x="870" y="20" width="82" height="22" rx="11" fill="rgba(0,180,216,.15)" stroke="#00b4d8" stroke-width="1"/>
+      <text x="911" y="35" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#00b4d8" text-anchor="middle">Technical Quality</text>
+      <rect x="962" y="20" width="88" height="22" rx="11" fill="rgba(157,78,221,.15)" stroke="#9d4edd" stroke-width="1"/>
+      <text x="1006" y="35" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#9d4edd" text-anchor="middle">Governance &amp; Risk</text>
+      <rect x="1060" y="20" width="68" height="22" rx="11" fill="rgba(247,127,0,.15)" stroke="#f77f00" stroke-width="1"/>
+      <text x="1094" y="35" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#f77f00" text-anchor="middle">Business Value</text>
+    </svg>
+    <h1>AI Metrics Catalog</h1>
+    <p class="lede">A reference catalog of 42 AI metrics across 11 lifecycle layers. Browse what each metric measures, how to compute it, when to adopt it, and which tools to use — organized by goal, maturity tier, and layer.</p>
     <div class="lenses">
       <div class="lens lens-tech">
         <h3>Technical Quality</h3>
@@ -222,7 +248,7 @@
 </main>
 
 <footer>
-  <div class="wrap">AI Governance &amp; Observability Scorecard · 42 metrics · 11 layers · Tap any card to expand · <a href="https://github.com/luispsalas/ai-governance-scorecard" target="_blank">GitHub</a></div>
+  <div class="wrap">AI Metrics Catalog · 42 metrics · 11 layers · Tap any card to expand · <a href="https://github.com/luispsalas/ai-governance-scorecard" target="_blank">GitHub</a></div>
 </footer>
 
 <script>
@@ -295,6 +321,14 @@ const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
 // Build filter chips
 const goalClass={"Technical Quality":"goal-tech","Governance & Risk":"goal-gov","Business Value":"goal-biz"};
+
+function chipAll(group,rowId){
+  const c=document.createElement("span");
+  c.className="chip all-chip"; c.textContent="All";
+  c.dataset.group=group; c.dataset.val="__all__";
+  c.onclick=()=>{state[group]=null; sync(); render();};
+  document.getElementById(rowId).appendChild(c);
+}
 function chip(text,group,val){
   const c=document.createElement("span");
   c.className="chip"+(group==="tier"?" "+tierClass[val]:group==="goal"?" "+goalClass[val]:"");
@@ -302,13 +336,19 @@ function chip(text,group,val){
   c.onclick=()=>{state[group]=state[group]===val?null:val; sync(); render();};
   return c;
 }
+chipAll("goal","f-goal");
 GOALS.forEach(g=>document.getElementById("f-goal").appendChild(chip(g,"goal",g)));
+chipAll("tier","f-tier");
 TIERS.forEach(t=>document.getElementById("f-tier").appendChild(chip(t,"tier",t)));
+chipAll("layer","f-layer");
 LAYERS.forEach(l=>document.getElementById("f-layer").appendChild(chip(l.name,"layer",l.name)));
 
 function sync(){
   document.querySelectorAll(".chip").forEach(c=>{
-    c.classList.toggle("active",state[c.dataset.group]===c.dataset.val);
+    if(c.dataset.val==="__all__")
+      c.classList.toggle("active", state[c.dataset.group]===null);
+    else
+      c.classList.toggle("active",state[c.dataset.group]===c.dataset.val);
   });
 }
 document.getElementById("search").addEventListener("input",e=>{state.q=e.target.value.toLowerCase();render();});
@@ -387,6 +427,7 @@ TIERS.forEach((t,i)=>{
   });
 });
 
+sync();
 render();
 </script>
 </body>
