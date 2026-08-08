@@ -168,7 +168,6 @@
     </svg>
     <h1>AI Metrics Catalog</h1>
     <p class="lede">A reference catalog of 42 AI metrics across 11 lifecycle layers. Browse what each metric measures, how to compute it, when to adopt it, and which tools to use — organized by goal, maturity tier, and layer.</p>
-    <p class="authorship-note">This catalog carries an <a href="#authorship">Authorship Meter</a> declaration — human/AI contribution, disclosed by stage.</p>
     <div class="lenses">
       <div class="lens lens-tech">
         <h3>Technical Quality</h3>
@@ -251,29 +250,9 @@
   </div>
 </main>
 
-<style>
-  .authorship-note{margin:12px 0 0;font-size:13px;color:var(--muted)}
-  .authorship-note a{color:var(--accent)}
-  .authorship-section{border-top:1px solid var(--line);margin-top:8px;padding:32px 0 8px}
-  .authorship-section h2{margin:0 0 4px}
-  .authorship-section .sub{color:var(--muted);font-size:13.5px;margin:0 0 16px}
-  .authorship-section .wip{font-size:12.5px;color:var(--muted);margin:16px 0 0;max-width:34rem;line-height:1.5}
-  .authorship-section .wip strong{color:var(--inter)}
-</style>
-<section id="authorship" class="authorship-section">
-  <div class="wrap">
-    <h2>Authorship</h2>
-    <p class="sub">How this catalog was made — human and AI contribution, by process stage.</p>
-    <authorship-meter src="authorship.json"
-      style="--am-bg:#171d26;--am-fg:#e6edf3;--am-muted:#9aa7b4;--am-line:#2a3340;--am-human:#4db6a3;--am-ai:#9b8cf0;"></authorship-meter>
-    <p class="wip"><strong>Work in progress.</strong> The Authorship Meter is an evolving disclosure format and this declaration is an early real-world test — both may change as the format is refined. A sample dashboard built from a subset of these metrics (with LLMs) is planned. Feedback welcome via the <a href="https://github.com/luispsalas/authorship-meter" target="_blank">meter repository</a>.</p>
-  </div>
-</section>
-
 <footer>
-  <div class="wrap">AI Metrics Catalog · 42 metrics · 11 layers · Tap any card to expand · <a href="https://github.com/luispsalas/ai-governance-scorecard" target="_blank">GitHub</a></div>
+  <div class="wrap">AI Metrics Catalog · 42 metrics · 11 layers · Tap any card to expand · <a href="https://github.com/luispsalas/ai-governance-scorecard" target="_blank">GitHub</a> · <a href="https://luispsalas.github.io/authorship-meter/declarations/ai-governance-scorecard.html" target="_blank">Authorship</a></div>
 </footer>
-<script src="https://luispsalas.github.io/authorship-meter/authorship-meter.js?v=20260808" defer></script>
 
 <script>
 const LAYERS=[

@@ -6,6 +6,8 @@ A reference catalog of **42 AI metrics** across **11 lifecycle layers**, designe
 
 **[Live Catalog](https://luispsalas.github.io/ai-governance-scorecard/)**
 
+This catalog carries an [Authorship Meter](#authorship) declaration — human/AI contribution, disclosed by stage.
+
 ---
 
 ## What's inside
@@ -85,6 +87,16 @@ Want to track your own metrics? Download the **[scorecard-template.md](scorecard
 ## See also
 
 **[applied-ai-concepts](https://github.com/luispsalas/applied-ai-concepts)** — a persistently maintained AI literacy wiki covering the foundational concepts behind designing, deploying, and governing AI systems.
+
+---
+
+## Authorship
+
+This catalog publishes a live [Authorship Meter](https://github.com/luispsalas/authorship-meter)
+declaration — how much came from a human vs. an AI model, by process stage. Self-assessed
+by the author (with LLM assistance) and re-issued whenever the catalog changes materially.
+
+**[View the declaration →](https://luispsalas.github.io/authorship-meter/declarations/ai-governance-scorecard.html)**
 
 ---
 
