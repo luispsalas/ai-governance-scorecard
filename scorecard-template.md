@@ -26,6 +26,44 @@ Use this template to build your team's working scorecard. Start with the Foundat
 
 ---
 
+## Worked example — illustrative sample data
+
+> **Fictional but realistic.** A snapshot of a filled scorecard, to show the shape.
+> The numbers below are made up. This is a catalog example, **not** a live dashboard.
+
+**System:** "Atlas" — internal employee support copilot (RAG over HR/IT knowledge base + ticketing agent)
+**Owner:** Applied AI team · **Review cadence:** Monthly · **Snapshot:** Aug 2026
+
+Status key: 🟢 on track (at/above target) · 🟡 watch (near target / drifting) · 🔴 off track (below target).
+Trend reflects movement *toward* the healthy target (so a falling hallucination or override rate is a good trend).
+
+| Metric | Layer | Value | Target | Status | Owner | Trend |
+|---|---|---|---|---|---|---|
+| Context Precision | Retrieval (RAG) | 0.82 | ≥ 0.80 | 🟢 | RAG team | ↑ good |
+| Context Recall | Retrieval (RAG) | 0.79 | ≥ 0.85 | 🟡 | RAG team | → steady |
+| MRR | Retrieval (RAG) | 0.74 | ≥ 0.70 | 🟢 | RAG team | ↑ good |
+| Faithfulness | Generation | 0.91 | ≥ 0.90 | 🟢 | ML eval | → steady |
+| Answer Relevance | Generation | 4.3 / 5 | ≥ 4 / 5 | 🟢 | ML eval | ↑ good |
+| Hallucination Rate | Generation | 4.2% | < 5% | 🟡 | ML eval | ↓ good |
+| Prompt Success Rate | Prompt Engineering | 94% | ≥ 95% | 🟡 | Platform | → steady |
+| Tool Call Success Rate | Agentic AI | 97.1% | ≥ 95% | 🟢 | Agents | ↑ good |
+| Agent Task Completion Rate | Agentic AI | 78% | ≥ 80% | 🟡 | Agents | ↑ good |
+| Toxicity Score | Safety & Trust | 0.3% | < 1% | 🟢 | Trust & Safety | → steady |
+| Refusal Accuracy | Safety & Trust | 96% | ≥ 95% | 🟢 | Trust & Safety | → steady |
+| PII Detection Recall | Data Governance | 97% | ≥ 98% | 🟡 | Data Gov | → steady |
+| Metadata Completeness | Data Governance | 88% | ≥ 90% | 🟡 | Data Gov | ↑ good |
+| Audit Trail Coverage | AI Governance | 99.4% | ~ 100% | 🟢 | Governance | → steady |
+| Human Override Rate | AI Governance | 9% | Trend ↓ | 🟡 | Governance | ↓ good |
+| Data Drift Score | ML Observability | PSI 0.14 | < 0.20 | 🟢 | MLOps | → steady |
+| Model Drift Score | ML Observability | PSI 0.23 | < 0.20 | 🔴 | MLOps | ↑ bad |
+| Latency (P95) | Operations | 4.6 s | < 5 s | 🟢 | Platform | → steady |
+| Error Rate | Operations | 0.7% | < 1% | 🟢 | Platform | → steady |
+| Cost per Request | Cost & FinOps | $0.041 | ≤ $0.05 | 🟢 | FinOps | ↓ good |
+| User Satisfaction Score | Business Value | 4.1 / 5 | ≥ 4 / 5 | 🟢 | Product | ↑ good |
+| Adoption Rate | Business Value | 54% | Grow | 🟡 | Product | ↑ good |
+
+---
+
 ## Foundational metrics — start here
 
 *These 17 metrics are table-stakes for any AI system in production.*

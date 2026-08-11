@@ -126,6 +126,29 @@
   .gloss dt{font-weight:650;font-size:13px;margin-top:10px}
   .gloss dd{margin:2px 0 0;color:var(--muted);font-size:12.5px;break-after:avoid}
   .gloss div{break-inside:avoid;margin-bottom:6px}
+
+  /* Worked-example scorecard */
+  .sample-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#e9c14d;background:rgba(224,168,0,.12);border:1px solid rgba(224,168,0,.4);border-radius:6px;padding:3px 9px;margin-left:10px;vertical-align:middle}
+  .sc-meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 16px;font-size:12.5px;color:var(--muted)}
+  .sc-meta b{color:var(--text);font-weight:600}
+  .sc-wrap{overflow-x:auto}
+  table.scorecard{width:100%;border-collapse:collapse;font-size:12.5px;min-width:660px}
+  table.scorecard th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--faint);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
+  table.scorecard td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:middle}
+  table.scorecard tr:last-child td{border-bottom:none}
+  table.scorecard .m-name{font-weight:600}
+  table.scorecard .m-layer{color:var(--faint);font-size:11px}
+  table.scorecard .m-val{font-family:var(--mono);color:#bcd7f0;white-space:nowrap}
+  table.scorecard .m-tgt{font-family:var(--mono);color:var(--muted);white-space:nowrap}
+  .sc-status{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .sc-status.ok{background:rgba(45,157,90,.16);color:#5fcf8a;border:1px solid rgba(45,157,90,.4)}
+  .sc-status.watch{background:rgba(224,168,0,.16);color:#e9c14d;border:1px solid rgba(224,168,0,.4)}
+  .sc-status.off{background:rgba(214,88,78,.16);color:#ef8a82;border:1px solid rgba(214,88,78,.4)}
+  .sc-trend{font-family:var(--mono);font-size:14px;text-align:center}
+  .sc-trend.good{color:#5fcf8a}.sc-trend.bad{color:#ef8a82}.sc-trend.flat{color:var(--faint)}
+  .sc-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:11.5px;color:var(--muted)}
+  .sc-legend span{display:inline-flex;align-items:center;gap:6px}
+  .sc-note{margin:16px 0 0;font-size:12px;color:var(--faint)}
   footer{border-top:1px solid var(--line);padding:24px 0;color:var(--faint);font-size:12.5px;text-align:center}
   .empty{text-align:center;color:var(--faint);padding:50px 0;font-size:15px}
 
@@ -224,6 +247,55 @@
           <ul id="tg-adv"></ul>
         </div>
       </div>
+    </section>
+
+    <section class="panel-block">
+      <h2>Worked example<span class="sample-tag">Illustrative sample data</span></h2>
+      <p class="sub">What a filled-in scorecard looks like in practice — a focused 22-metric selection for one system, scored against targets. This is a snapshot catalog example, <b>not</b> a live dashboard; the numbers are fictional but realistic.</p>
+      <div class="sc-meta">
+        <span><b>System:</b> "Atlas" — internal employee support copilot (RAG over HR/IT knowledge base + ticketing agent)</span>
+        <span><b>Owner:</b> Applied AI team</span>
+        <span><b>Review cadence:</b> Monthly</span>
+        <span><b>Snapshot:</b> Aug 2026</span>
+      </div>
+      <div class="sc-wrap">
+        <table class="scorecard">
+          <thead>
+            <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th><th>Owner</th><th style="text-align:center">Trend</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="m-name">Context Precision</span><br><span class="m-layer">Retrieval (RAG)</span></td><td class="m-val">0.82</td><td class="m-tgt">≥ 0.80</td><td><span class="sc-status ok">On track</span></td><td>RAG team</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Context Recall</span><br><span class="m-layer">Retrieval (RAG)</span></td><td class="m-val">0.79</td><td class="m-tgt">≥ 0.85</td><td><span class="sc-status watch">Watch</span></td><td>RAG team</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">MRR</span><br><span class="m-layer">Retrieval (RAG)</span></td><td class="m-val">0.74</td><td class="m-tgt">≥ 0.70</td><td><span class="sc-status ok">On track</span></td><td>RAG team</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Faithfulness</span><br><span class="m-layer">Generation</span></td><td class="m-val">0.91</td><td class="m-tgt">≥ 0.90</td><td><span class="sc-status ok">On track</span></td><td>ML eval</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Answer Relevance</span><br><span class="m-layer">Generation</span></td><td class="m-val">4.3 / 5</td><td class="m-tgt">≥ 4 / 5</td><td><span class="sc-status ok">On track</span></td><td>ML eval</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Hallucination Rate</span><br><span class="m-layer">Generation</span></td><td class="m-val">4.2%</td><td class="m-tgt">&lt; 5%</td><td><span class="sc-status watch">Watch</span></td><td>ML eval</td><td class="sc-trend good">↓</td></tr>
+            <tr><td><span class="m-name">Prompt Success Rate</span><br><span class="m-layer">Prompt Engineering</span></td><td class="m-val">94%</td><td class="m-tgt">≥ 95%</td><td><span class="sc-status watch">Watch</span></td><td>Platform</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Tool Call Success Rate</span><br><span class="m-layer">Agentic AI</span></td><td class="m-val">97.1%</td><td class="m-tgt">≥ 95%</td><td><span class="sc-status ok">On track</span></td><td>Agents</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Agent Task Completion Rate</span><br><span class="m-layer">Agentic AI</span></td><td class="m-val">78%</td><td class="m-tgt">≥ 80%</td><td><span class="sc-status watch">Watch</span></td><td>Agents</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Toxicity Score</span><br><span class="m-layer">Safety &amp; Trust</span></td><td class="m-val">0.3%</td><td class="m-tgt">&lt; 1%</td><td><span class="sc-status ok">On track</span></td><td>Trust &amp; Safety</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Refusal Accuracy</span><br><span class="m-layer">Safety &amp; Trust</span></td><td class="m-val">96%</td><td class="m-tgt">≥ 95%</td><td><span class="sc-status ok">On track</span></td><td>Trust &amp; Safety</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">PII Detection Recall</span><br><span class="m-layer">Data Governance</span></td><td class="m-val">97%</td><td class="m-tgt">≥ 98%</td><td><span class="sc-status watch">Watch</span></td><td>Data Gov</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Metadata Completeness</span><br><span class="m-layer">Data Governance</span></td><td class="m-val">88%</td><td class="m-tgt">≥ 90%</td><td><span class="sc-status watch">Watch</span></td><td>Data Gov</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Audit Trail Coverage</span><br><span class="m-layer">AI Governance</span></td><td class="m-val">99.4%</td><td class="m-tgt">~ 100%</td><td><span class="sc-status ok">On track</span></td><td>Governance</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Human Override Rate</span><br><span class="m-layer">AI Governance</span></td><td class="m-val">9%</td><td class="m-tgt">Trend ↓</td><td><span class="sc-status watch">Watch</span></td><td>Governance</td><td class="sc-trend good">↓</td></tr>
+            <tr><td><span class="m-name">Data Drift Score</span><br><span class="m-layer">ML Observability</span></td><td class="m-val">PSI 0.14</td><td class="m-tgt">&lt; 0.20</td><td><span class="sc-status ok">On track</span></td><td>MLOps</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Model Drift Score</span><br><span class="m-layer">ML Observability</span></td><td class="m-val">PSI 0.23</td><td class="m-tgt">&lt; 0.20</td><td><span class="sc-status off">Off track</span></td><td>MLOps</td><td class="sc-trend bad">↑</td></tr>
+            <tr><td><span class="m-name">Latency (P95)</span><br><span class="m-layer">Operations</span></td><td class="m-val">4.6 s</td><td class="m-tgt">&lt; 5 s</td><td><span class="sc-status ok">On track</span></td><td>Platform</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Error Rate</span><br><span class="m-layer">Operations</span></td><td class="m-val">0.7%</td><td class="m-tgt">&lt; 1%</td><td><span class="sc-status ok">On track</span></td><td>Platform</td><td class="sc-trend flat">→</td></tr>
+            <tr><td><span class="m-name">Cost per Request</span><br><span class="m-layer">Cost &amp; FinOps</span></td><td class="m-val">$0.041</td><td class="m-tgt">≤ $0.05</td><td><span class="sc-status ok">On track</span></td><td>FinOps</td><td class="sc-trend good">↓</td></tr>
+            <tr><td><span class="m-name">User Satisfaction Score</span><br><span class="m-layer">Business Value</span></td><td class="m-val">4.1 / 5</td><td class="m-tgt">≥ 4 / 5</td><td><span class="sc-status ok">On track</span></td><td>Product</td><td class="sc-trend good">↑</td></tr>
+            <tr><td><span class="m-name">Adoption Rate</span><br><span class="m-layer">Business Value</span></td><td class="m-val">54%</td><td class="m-tgt">Grow</td><td><span class="sc-status watch">Watch</span></td><td>Product</td><td class="sc-trend good">↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sc-legend">
+        <span><span class="sc-status ok">On track</span> at or above target</span>
+        <span><span class="sc-status watch">Watch</span> near target / drifting</span>
+        <span><span class="sc-status off">Off track</span> below target, needs action</span>
+        <span><span class="sc-trend good" style="font-size:13px">↑↓</span> moving the good way &nbsp;·&nbsp; <span class="sc-trend bad" style="font-size:13px">↑↓</span> moving the wrong way &nbsp;·&nbsp; <span class="sc-trend flat" style="font-size:13px">→</span> steady</span>
+      </div>
+      <p class="sc-note">Editable version: <a href="https://github.com/luispsalas/ai-governance-scorecard/blob/main/scorecard-template.md" target="_blank">scorecard-template.md</a>. Trend colour reflects whether movement is <em>toward</em> the healthy target — so a falling hallucination rate or override rate is green, while rising model drift is red.</p>
     </section>
 
     <section class="panel-block">
